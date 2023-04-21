@@ -15,6 +15,6 @@ namespace Wordcount.Controllers
             Logger = logger;
         }
 
-        public abstract Task<ActionResult<int>> CountWords(IFormFile file);
+        public abstract Task<ActionResult<string>> CountWords(IFormFile file);
     }
 }

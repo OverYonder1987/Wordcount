@@ -5,7 +5,6 @@ using WordCountCore.interfaces;
 namespace Wordcount.Controllers;
 
 [ApiController]
-[Route("/api")]
 public class TextDocumentController : WordCountControllerBase
 {
     protected readonly IWordCounter _wordCounter;
@@ -17,8 +16,8 @@ public class TextDocumentController : WordCountControllerBase
         _wordCounter = wordCounter;
     }
 
-    [HttpPost("/wordcount")]
-    public override async Task<ActionResult<int>> CountWords(IFormFile? file)
+    [HttpPost("/api/wordcount")]
+    public override async Task<ActionResult<string>> CountWords(IFormFile? file)
     {
         try
         {
