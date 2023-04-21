@@ -13,6 +13,8 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddTransient<IWordCounter, WordCounter>();
 
+builder.Services.AddRazorPages();
+
 builder.Services.AddHttpsRedirection(options =>
 {
     options.RedirectStatusCode = (int)HttpStatusCode.TemporaryRedirect;
@@ -27,6 +29,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.MapRazorPages();
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.UseHttpsRedirection();
 
